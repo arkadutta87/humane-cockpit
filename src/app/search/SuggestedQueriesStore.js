@@ -19,10 +19,12 @@ export default class extends FluxStore {
         // this.searchInputStore.addListener(`UPDATE:${EVENT_PAGE_UPDATE}`, () => this.fetchSuggestedQueries());
     }
 
+    // eslint-disable-next-line class-methods-use-this
     noSuggestions() {
         // return this.updateData(this.data.set('suggestions', null).set('totalTimeTaken', null));
     }
 
+    // eslint-disable-next-line class-methods-use-this
     fetchSuggestedQueries() {
         // const text = this.searchInputStore.data.get('text');
         // if (!text) {

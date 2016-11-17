@@ -10,7 +10,7 @@ export default class WeakSuggestionMarker {
         if (input.multi) {
             _(input.results).values()
               .filter(resultGroup => resultGroup.name !== 'searchQuery')
-              .forEach(resultGroup => {
+              .forEach((resultGroup) => {
                   this.storeRelevancyScores(resultGroup.results);
                   return true;
               });
@@ -19,7 +19,7 @@ export default class WeakSuggestionMarker {
 
             _(input.results).values()
               .filter(resultGroup => resultGroup.name !== 'searchQuery')
-              .forEach(suggestionGroup => {
+              .forEach((suggestionGroup) => {
                   this.markWeakResults(suggestionGroup.results, suggestionGroup.name, deflectionScore);
                   return true;
               });
@@ -37,7 +37,7 @@ export default class WeakSuggestionMarker {
 
         const relevancyScores = this.relevancyScores;
 
-        _.forEach(results, result => {
+        _.forEach(results, (result) => {
             result._relevancy = result._score / (result._weight || 1.0);
             relevancyScores.push(result._relevancy);
         });
@@ -61,7 +61,7 @@ export default class WeakSuggestionMarker {
         // iterate over the relevancy scores to find point at which score drops suddenly.
         let previousRelevancy = 0;
         let deflectionScore = 0;
-        _.forEach(relevancyScores, score => {
+        _.forEach(relevancyScores, (score) => {
             if (previousRelevancy && score < 0.2 * previousRelevancy) {
                 deflectionScore = previousRelevancy;
                 return false;
@@ -75,8 +75,9 @@ export default class WeakSuggestionMarker {
         return deflectionScore;
     }
 
+    // eslint-disable-next-line class-methods-use-this
     markWeakResults(results, name, deflectionScore) {
-        _.forEach(results, result => {
+        _.forEach(results, (result) => {
             if (result._relevancy >= deflectionScore) {
                 return true;
             }

@@ -78,17 +78,17 @@ export default class extends FluxStore {
     setPrimaryLanguage(lang) {
         const data = this.data
           .setIn(['filter', 'lang', 'primary'], lang)
-          .updateIn(['filter', 'lang', 'secondary'], (secondary) => secondary.filterNot((val) => val === lang));
+          .updateIn(['filter', 'lang', 'secondary'], secondary => secondary.filterNot(val => val === lang));
 
         this.updateData(data, EVENT_FILTER_UPDATE);
     }
 
     addSecondaryLanguage(lang) {
-        this.updateData(this.data.updateIn(['filter', 'lang', 'secondary'], (secondary) => secondary.push(lang)), EVENT_FILTER_UPDATE);
+        this.updateData(this.data.updateIn(['filter', 'lang', 'secondary'], secondary => secondary.push(lang)), EVENT_FILTER_UPDATE);
     }
 
     removeSecondaryLanguage(lang) {
-        this.updateData(this.data.updateIn(['filter', 'lang', 'secondary'], (secondary) => secondary.filterNot((val) => val === lang)), EVENT_FILTER_UPDATE);
+        this.updateData(this.data.updateIn(['filter', 'lang', 'secondary'], secondary => secondary.filterNot(val => val === lang)), EVENT_FILTER_UPDATE);
     }
 
     addFacet(key, value) {
@@ -97,11 +97,11 @@ export default class extends FluxStore {
             data = data.setIn(['filter', key], Immutable.fromJS({values: [], type: 'facet'}));
         }
 
-        this.updateData(data.updateIn(['filter', key, 'values'], (values) => values.push(value)), EVENT_FILTER_UPDATE);
+        this.updateData(data.updateIn(['filter', key, 'values'], values => values.push(value)), EVENT_FILTER_UPDATE);
     }
 
     removeFacet(key, value) {
-        let data = this.data.updateIn(['filter', key, 'values'], (values) => values.filterNot((val) => val === value));
+        let data = this.data.updateIn(['filter', key, 'values'], values => values.filterNot(val => val === value));
 
         if (data.getIn(['filter', key, 'values']).count() === 0) {
             data = data.deleteIn(['filter', key]);

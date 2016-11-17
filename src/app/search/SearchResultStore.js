@@ -77,7 +77,7 @@ export default class extends FluxStore {
                         ? response.entity.results
                         : {[response.entity.name || response.entity.type]: response.entity};
 
-                      Immutable.fromJS(results).entrySeq().forEach(value => {
+                      Immutable.fromJS(results).entrySeq().forEach((value) => {
                           const key = value[0];
                           const newResultGroup = value[1];
 
@@ -85,7 +85,7 @@ export default class extends FluxStore {
 
                           if (existingResultGroup) {
                               let existingResults = existingResultGroup.get('results');
-                              newResultGroup.get('results').forEach(newResult => {
+                              newResultGroup.get('results').forEach((newResult) => {
                                   existingResults = existingResults.push(Immutable.fromJS(newResult));
                               });
 
@@ -103,7 +103,7 @@ export default class extends FluxStore {
                       data = data.set('results', existingResultGroups);
                   } else {
                       let existingResults = data.get('results') || Immutable.List();
-                      Immutable.fromJS(response.entity.results).forEach(newResult => {
+                      Immutable.fromJS(response.entity.results).forEach((newResult) => {
                           existingResults = existingResults.push(Immutable.fromJS(newResult));
                       });
 
@@ -126,7 +126,7 @@ export default class extends FluxStore {
 
               return this.updateData(data);
           })
-          .catch(error => {
+          .catch((error) => {
               console.error(`Error in posting to: ${this.fluxController.appProperties.get('searcherApi')}/search}`,
                 this.searchInputStore.data, error);
           });
