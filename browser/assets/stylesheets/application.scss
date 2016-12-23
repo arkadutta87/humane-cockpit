@@ -1,4 +1,5 @@
 @import "variables";
+@import "materialize/reset";
 @import "materialize/prefixer";
 @import "materialize/mixins";
 @import "materialize/color";
@@ -16,14 +17,19 @@
 //@import "materialize/tabs";
 //@import "materialize/sideNav";
 
-@import "lists";
-@import "cards";
-@import "buttons";
-@import "form";
-@import "dropdown";
-@import "chips";
+//@import "lists";
+//@import "cards";
+//@import "buttons";
+//@import "form";
+//@import "dropdown";
+//@import "chips";
 
-@import "custom-page";
-@import "search-page";
-@import "suggestions-page";
-@import "autocomplete-form";
+//@import "custom-page";
+//@import "search-page";
+//@import "suggestions-page";
+//@import "autocomplete-form";
+
+/*Code by Arka */
+@import "spa";
+@import "breadcrumb";
+@import "chart-section";

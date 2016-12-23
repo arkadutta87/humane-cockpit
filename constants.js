@@ -1,0 +1,1 @@
+exports.configurationFile = '/etc/env/humane-cockpit-indexer.json';

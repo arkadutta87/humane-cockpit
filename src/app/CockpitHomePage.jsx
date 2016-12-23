@@ -43,6 +43,17 @@ const View = (props) => {
     return <noscript/>;
 };
 
+const TableLogin = (props) => {
+
+    const username = props.data.get('username');
+    const pwd = props.data.get('passwd');
+
+    return (<tr><td>{username}</td><td>{pwd}</td>
+        </tr>);
+
+
+}
+
 View.propTypes = {
     depth: React.PropTypes.number.isRequired,
     appProperties: React.PropTypes.object
@@ -57,9 +68,29 @@ export default React.createClass({
         </div>);
     },
 
+    loginInfo() {
+        const appProperties2 = this.getAppProperties();
+        const viewsProperties2 = appProperties2 && appProperties2.get('loginInfo');
+
+        const tableBodyLg = viewsProperties2 && viewsProperties2.map((data, index) => <TableLogin data={data} appProperties={appProperties2} depth={0} key={index}/>);
+       // console.log(objArr);
+
+        return (<table>
+            <thead><tr>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+            </thead>
+            <tbody>{tableBodyLg}</tbody>
+        </table>);
+    },
+
     render() {
         const appProperties = this.getAppProperties();
         const viewsProperties = appProperties && appProperties.get('views');
+
+        console.log('Inside the basic page render');
+
 
         const views = viewsProperties && viewsProperties.map((data, index) => <View data={data} appProperties={appProperties} depth={0} key={index}/>);
 
@@ -71,7 +102,37 @@ export default React.createClass({
             </header>
             <main>
                 <div className="row">
-                    <LeftSection/>
+                    <LeftSection>
+                        <div >
+                            <a href={`${appProperties && appProperties.get('baseUrl') || ''}/arka/d3`} target="_blank">
+                                D3 Chart Demo
+                            </a>
+                            <br/>
+                            <br/>
+                            <a href={`${appProperties && appProperties.get('baseUrl') || ''}/arka/d3/1`} target="_blank">
+                                D3 Chart Demo 2
+                            </a>
+                            <br/>
+                            <br/>
+                            <a href={`${appProperties && appProperties.get('baseUrl') || ''}/arka/d3/2`} target="_blank">
+                                D3 Chart Demo 3
+                            </a>
+
+                            <br/>
+                            <br/>
+                            <a href={`${appProperties && appProperties.get('baseUrl') || ''}/singlePageApp`} >
+                                Single Page App Demo
+                            </a>
+
+                            <br/>
+                            <br/>
+                            <a href={`${appProperties && appProperties.get('baseUrl') || ''}/dashboard`} >
+                                DashBoard
+                            </a>
+
+
+                        </div>
+                    </LeftSection>
                     <MidSection>
                         <div className="section large">
                             <h3 className="underline">Demos</h3>
@@ -89,7 +150,19 @@ export default React.createClass({
                                 {views}
                             </ul>
                         </div>
+
+                        <div >
+                            {this.loginInfo()}
+                        </div>
+
+
+
+
                     </MidSection>
+
+
+
+
                 </div>
             </main>
         </div>);

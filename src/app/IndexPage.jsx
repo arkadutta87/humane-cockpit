@@ -6,7 +6,7 @@ export default React.createClass({
     mixins: [FluxControllerInjector],
 
     render() {
-        return (<div className="page">
+        return (<div>
             {this.props.children}
         </div>);
     }

@@ -1,0 +1,49 @@
+{
+   "mappings": {
+      "doc": {
+         "properties": {
+            "requestType": {
+               "type": "string",
+               "index": "not_analyzed"
+            },
+            "timePoint": {
+	          "type":   "date",
+	          "format": "yyyyMMddHHmmss||yyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+	        },
+	        "clusterName": {
+               "type": "string",
+               "index": "not_analyzed"
+            },
+            "instanceName": {
+               "type": "string",
+               "index": "not_analyzed"
+            },
+            "query": {
+               "type": "string",
+               "index": "not_analyzed"
+            },
+            "avgResults": {
+          		"type": "float"
+        	},
+        	"maxResults": {
+          		"type": "integer"
+        	},
+        	"avgUnits": {
+          		"type": "float"
+        	},
+        	"maxUnits": {
+          		"type": "integer"
+        	},
+        	"avgLatency": {
+          		"type": "float"
+        	},
+        	"maxLatency": {
+          		"type": "float"
+        	},
+        	"count": {
+          		"type": "integer"
+        	}
+         }
+      }
+   }
+}

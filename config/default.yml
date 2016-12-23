@@ -1,0 +1,28 @@
+HUMANE_SERVER_PORT: 3000
+logLevel: info
+loginConfiguration:
+  - username: arkadutta
+    passwd: 12345678
+  - username: shalmoli
+    passwd: arka1234
+esConfig:
+  url: http://localhost:9200
+  maxSockets: 20
+  maxFreeSockets: 5
+  timeout: 60000
+  keepAliveTimeout: 30000
+redisConfig:
+  host: 127.0.0.1
+  port: 6379
+  connect_timeout: 10000
+  retry_max_delay: 50000
+locksConfig:
+  type: redis # allowed values: redis, local, or null (==local)
+  timeout: 10000
+  retries: 1000
+  delay: 100
+cacheConfig:
+  type: redis # allowed values: redis, local, or null (==local)
+  flushTimeout: 30000 # 10 seconds
+dashboardConfig:
+  title: Cockpit DashBoard

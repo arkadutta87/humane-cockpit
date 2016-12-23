@@ -67,4 +67,3 @@ eachLine(fileName,function(line,last) {
 //console.log(configuration.username);
 //console.log(configuration.password);
 
-

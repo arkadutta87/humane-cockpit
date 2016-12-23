@@ -1,0 +1,85 @@
+.backgrnd-theme-2 {
+  height: 100vh;
+  margin: 58px auto;
+
+}
+
+.chart {
+  &-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    background-color: rgba(178, 223, 219, 0.4);
+  }
+
+  &-header {
+    font-size: 0.85em;
+    /* text-align: left; */
+    text-decoration: underline;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+
+  &-summary {
+    border: 1px solid teal;
+    display: inline-block;
+    float: right;
+    height: 85px;
+  }
+}
+
+.td-underline {
+  text-decoration: underline;
+}
+
+.td-strikethrough {
+  text-decoration: line-through;
+}
+
+.block-1:after, .block-2:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.chart-clickable-left span, .chart-clickable-right span {
+  border: 1px solid teal;
+  padding-left: 4px;
+  padding-right: 7px;
+  cursor: pointer;
+}
+
+.chart-clickable {
+
+  &-left {
+    display: inline-block;
+    padding-top: 10px;
+  }
+
+  &-right {
+    display: inline-block;
+    padding-top: 10px;
+    float: right
+  }
+
+}
+
+.block-2 {
+  padding-top: 20px;
+}
+
+.block-3 table, .block-3 th, .block-3 td {
+  border: 1px solid teal;
+}
+
+.block-3 tr:nth-child(even) {
+  background-color: rgba(178, 223, 219, 0.8);
+}
+
+.block-3 {
+  padding-top: 20px;
+}
+
+.option-clicked {
+  background-color: rgba(178, 223, 219, 0.8);
+}
